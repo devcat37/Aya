@@ -1,4 +1,5 @@
 import 'package:aya/domain/models/survey/survey.dart';
+import 'package:aya/internal/services/app_redirects.dart';
 import 'package:aya/internal/utils/infrastructure.dart';
 import 'package:aya/presentation/global/aya_button/aya_button.dart';
 import 'package:aya/presentation/pages/survey_question_page/survey_question_page_view.dart';
@@ -42,9 +43,11 @@ class _SurveyPageViewState extends State<SurveyPageView> {
             child: AyaButton(
               title: 'Продолжить',
               onPressed: () {
-                if (widget.survey.currentQuestionHasAnswer) {
+                if (widget.survey.currentQuestionHasAnswer && !widget.survey.isLastQuestion) {
                   widget.survey.goToNextQuestion();
                   _pageController.nextPage(duration: defaultAnimationDuration, curve: Curves.decelerate);
+                } else {
+                  goToMainPage(context);
                 }
               },
             ),
