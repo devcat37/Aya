@@ -4,13 +4,20 @@ import 'package:aya/presentation/global/aya_button/aya_button.dart';
 import 'package:aya/presentation/pages/survey_question_page/survey_question_page_view.dart';
 import 'package:flutter/material.dart';
 
-class SurveyPageView extends StatelessWidget {
+class SurveyPageView extends StatefulWidget {
   const SurveyPageView({
     Key? key,
     required this.survey,
   }) : super(key: key);
 
   final Survey survey;
+
+  @override
+  State<SurveyPageView> createState() => _SurveyPageViewState();
+}
+
+class _SurveyPageViewState extends State<SurveyPageView> {
+  final PageController _pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +28,25 @@ class SurveyPageView extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height,
             child: PageView(
-              children: survey.questions.map((e) => SurveyQuestionPageView(question: e)).toList(),
+              physics: const NeverScrollableScrollPhysics(),
+              controller: _pageController,
+              children: widget.survey.questions
+                  .map(
+                    (e) => SurveyQuestionPageView(question: e),
+                  )
+                  .toList(),
             ),
           ),
           Positioned(
             bottom: sidePadding48,
             child: AyaButton(
-              onPressed: () {},
+              title: 'Продолжить',
+              onPressed: () {
+                if (widget.survey.currentQuestionHasAnswer) {
+                  widget.survey.goToNextQuestion();
+                  _pageController.nextPage(duration: defaultAnimationDuration, curve: Curves.decelerate);
+                }
+              },
             ),
           ),
         ],

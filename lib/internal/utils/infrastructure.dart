@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 const whiteColor = Color(0xFFFFFFFF);
 const blackColor = Color(0xFF000000);
+const lightSurfaceColor = Color(0xFFDADADA);
+
+const defaultOptionColor = Color(0xFFAAAAAA);
+const chosenOptionColor = Color(0xFF487339);
 
 const mainGreenColor = Color(0xFF8FD875);
 

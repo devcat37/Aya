@@ -1,5 +1,6 @@
 import 'package:aya/domain/models/question/question.dart';
 import 'package:aya/presentation/pages/survey_question_page/survey_question__header.dart';
+import 'package:aya/presentation/pages/survey_question_page/survey_question__option.dart';
 import 'package:flutter/material.dart';
 
 class SurveyQuestionPageView extends StatelessWidget {
@@ -15,6 +16,7 @@ class SurveyQuestionPageView extends StatelessWidget {
       children: [
         // Заголовок тестирования с текстом вопроса.
         SurveyQuestionHeader(title: question.title),
+        SurveyQuestionOption(question: question),
       ],
     );
   }

@@ -25,6 +25,8 @@ class Application extends StatelessWidget {
           headline2: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
           headline3: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
           headline4: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+          subtitle1: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+          button: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
         ),
       ),
       initialRoute: '/',

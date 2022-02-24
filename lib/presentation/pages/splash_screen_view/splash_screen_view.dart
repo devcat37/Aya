@@ -41,6 +41,8 @@ class _SplashScreenViewState extends State<SplashScreenView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/images/logo.png'),
+            const SizedBox(height: sidePadding32),
             Text(
               Settings.appName.toUpperCase(),
               style: Theme.of(context).textTheme.headline1!.copyWith(color: blackColor),
