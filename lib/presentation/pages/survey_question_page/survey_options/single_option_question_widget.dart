@@ -1,7 +1,10 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:aya/domain/models/question/question_option.dart';
 import 'package:aya/domain/models/question/single_option_question.dart';
 import 'package:aya/internal/utils/infrastructure.dart';
-import 'package:flutter/material.dart';
 
 class SingleOptionQuestionWidget extends StatefulWidget {
   const SingleOptionQuestionWidget({

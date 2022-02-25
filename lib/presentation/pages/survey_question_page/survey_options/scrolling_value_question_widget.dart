@@ -1,12 +1,16 @@
+// Dart imports:
 import 'dart:math';
 
+// Flutter imports:
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/scheduler.dart';
+
+// Project imports:
 import 'package:aya/domain/models/question/scrolling_double_value_question.dart';
 import 'package:aya/internal/services/helpers.dart';
 import 'package:aya/internal/utils/infrastructure.dart';
 import 'package:aya/presentation/pages/survey_question_page/survey_question__header.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/scheduler.dart';
 
 class ScrollingValueQuestionWidget extends StatefulWidget {
   const ScrollingValueQuestionWidget({
@@ -26,8 +30,6 @@ class _ScrollingValueQuestionWidgetState extends State<ScrollingValueQuestionWid
 
   static const style =
       TextStyle(fontFamily: 'Inter', fontSize: maxValueSize, fontWeight: FontWeight.w500, color: blackColor);
-
-  static const itemCount = 10;
 
   final ScrollController _scrollControllerFirst = ScrollController();
   final ScrollController _scrollControllerSecond = ScrollController();
@@ -49,16 +51,18 @@ class _ScrollingValueQuestionWidgetState extends State<ScrollingValueQuestionWid
 
       _scrollControllerFirst.addListener(() {
         setState(() {
-          indexOfMiddleElementFirst =
-              (_scrollControllerFirst.offset / getTextWidgetSize('5', style).height).round().clamp(0, itemCount - 1);
+          indexOfMiddleElementFirst = (_scrollControllerFirst.offset / getTextWidgetSize('5', style).height)
+              .round()
+              .clamp(0, widget.question.valuesOne.length - 1);
         });
 
         _scrollListener(_scrollControllerFirst, indexOfMiddleElementFirst);
       });
       _scrollControllerSecond.addListener(() {
         setState(() {
-          indexOfMiddleElementSecond =
-              (_scrollControllerSecond.offset / getTextWidgetSize('5', style).height).round().clamp(0, itemCount - 1);
+          indexOfMiddleElementSecond = (_scrollControllerSecond.offset / getTextWidgetSize('5', style).height)
+              .round()
+              .clamp(0, widget.question.valuesTwo.length - 1);
         });
 
         _scrollListener(_scrollControllerSecond, indexOfMiddleElementSecond);
@@ -67,8 +71,10 @@ class _ScrollingValueQuestionWidgetState extends State<ScrollingValueQuestionWid
       _scrollControllerFirst.jumpTo(screenCenterPosition);
       _scrollControllerSecond.jumpTo(screenCenterPosition);
 
-      _maybeCenterValue(_scrollControllerFirst, indexOfMiddleElementFirst);
-      _maybeCenterValue(_scrollControllerSecond, indexOfMiddleElementSecond);
+      Future.delayed(defaultAnimationDuration, () {
+        _maybeCenterValue(_scrollControllerFirst, indexOfMiddleElementFirst);
+        _maybeCenterValue(_scrollControllerSecond, indexOfMiddleElementSecond);
+      });
     });
   }
 
@@ -100,19 +106,19 @@ class _ScrollingValueQuestionWidgetState extends State<ScrollingValueQuestionWid
             children: [
               const Expanded(child: SizedBox.shrink()),
               Expanded(
-                flex: 7,
+                flex: 14,
                 child: ListView.builder(
                   controller: _scrollControllerFirst,
                   padding: EdgeInsets.symmetric(
                       vertical: (MediaQuery.of(context).size.height - SurveyQuestionHeader.defaultHeight) / 2 -
                           getTextWidgetSize('5', style).height / 2),
-                  itemCount: itemCount,
+                  itemCount: widget.question.valuesOne.length,
                   itemBuilder: (context, index) {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          (index + 10).toString(),
+                          widget.question.valuesOne.elementAt(index),
                           style: style.copyWith(
                             color: blackColor.withOpacity((1 -
                                     (index * getTextWidgetSize('5', style).height - _scrollControllerFirst.offset)
@@ -130,25 +136,25 @@ class _ScrollingValueQuestionWidgetState extends State<ScrollingValueQuestionWid
                 ),
               ),
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: Center(
                   child: Text(widget.question.separatorSymbol, style: style),
                 ),
               ),
               Expanded(
-                flex: 5,
+                flex: 14,
                 child: ListView.builder(
                   controller: _scrollControllerSecond,
                   padding: EdgeInsets.symmetric(
                       vertical: (MediaQuery.of(context).size.height - SurveyQuestionHeader.defaultHeight) / 2 -
                           getTextWidgetSize('5', style).height / 2),
-                  itemCount: itemCount,
+                  itemCount: widget.question.valuesTwo.length,
                   itemBuilder: (context, index) {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          (index + 1).toString(),
+                          widget.question.valuesTwo.elementAt(index),
                           style: style.copyWith(
                             color: blackColor.withOpacity((1 -
                                     (index * getTextWidgetSize('5', style).height - _scrollControllerSecond.offset)

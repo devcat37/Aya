@@ -1,9 +1,12 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:aya/domain/models/question/question.dart';
 import 'package:aya/domain/models/question/scrolling_double_value_question.dart';
 import 'package:aya/domain/models/question/single_option_question.dart';
 import 'package:aya/presentation/pages/survey_question_page/survey_options/scrolling_value_question_widget.dart';
 import 'package:aya/presentation/pages/survey_question_page/survey_options/single_option_question_widget.dart';
-import 'package:flutter/material.dart';
 
 class SurveyQuestionOption extends Widget {
   const SurveyQuestionOption({

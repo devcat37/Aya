@@ -1,4 +1,6 @@
 // Локатор служб.
+
+// Package imports:
 import 'package:get_it/get_it.dart';
 
 // Доступ к сервисам через service<T>();

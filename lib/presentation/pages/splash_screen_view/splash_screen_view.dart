@@ -1,8 +1,14 @@
-import 'package:aya/internal/services/app_redirects.dart';
-import 'package:aya/internal/services/settings.dart';
-import 'package:aya/internal/utils/infrastructure.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+
+// Project imports:
+import 'package:aya/domain/mock/mock_users.dart';
+import 'package:aya/internal/services/app_redirects.dart';
+import 'package:aya/internal/services/service_locator.dart';
+import 'package:aya/internal/services/settings.dart';
+import 'package:aya/internal/states/user_state/user_state.dart';
+import 'package:aya/internal/utils/infrastructure.dart';
 
 class SplashScreenView extends StatefulWidget {
   const SplashScreenView({Key? key}) : super(key: key);
@@ -25,6 +31,9 @@ class _SplashScreenViewState extends State<SplashScreenView> {
     SchedulerBinding.instance?.addPostFrameCallback((_) async {
       // Задержка для показа Splash screen на 3 секунды.
       await Future.delayed(aSecond * 3);
+
+      // TODO: Сделать нормальную инициализацию пользователя.
+      service<UserState>().user = mockUser1;
 
       // Ежедневный опрос о здоровье. После него переход на главную страницу.
       await goToHealthSurveyPage(context);

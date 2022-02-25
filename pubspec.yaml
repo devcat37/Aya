@@ -27,6 +27,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  carousel_slider: ^4.0.0
+
   flutter:
     sdk: flutter
 
@@ -34,9 +36,11 @@ dependencies:
   flutter_secure_storage: ^4.2.1
   flutter_svg: ^0.22.0
   get_it: ^7.0.0
+  json_annotation: ^4.0.1
   mobx: ^2.0.3 
   infinite_listview: ^1.1.0
   shimmer: ^2.0.0
+  smooth_page_indicator: ^1.0.0+2
 
 
 dev_dependencies:
@@ -86,6 +90,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+    - family: AyaIcons    
+      fonts:
+        - asset: fonts/AyaIcons.ttf
     - family: Raleway    
       fonts:
         - asset: fonts/raleway/Raleway-Light.ttf

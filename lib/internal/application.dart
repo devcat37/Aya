@@ -1,10 +1,13 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+// Project imports:
 import 'package:aya/internal/pages/health_survey_page/health_survey_page.dart';
 import 'package:aya/internal/pages/workspace/workspace.dart';
 import 'package:aya/internal/services/settings.dart';
 import 'package:aya/internal/utils/infrastructure.dart';
 import 'package:aya/presentation/pages/splash_screen_view/splash_screen_view.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class Application extends StatelessWidget {
   const Application({Key? key}) : super(key: key);

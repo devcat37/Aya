@@ -1,13 +1,37 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
 const whiteColor = Color(0xFFFFFFFF);
 const blackColor = Color(0xFF000000);
 const lightSurfaceColor = Color(0xFFDADADA);
+const lightGreyColor = Color(0xFFDADADA);
 
 const defaultOptionColor = Color(0xFFAAAAAA);
 const chosenOptionColor = Color(0xFF487339);
 
+const greyTextColor = Color(0xFF697180);
+
 const mainGreenColor = Color(0xFF8FD875);
+const greenButtonGradient = [mainGreenColor, Color(0xFF71B857)];
+
+// Цвета для иконок.
+const orangeImageGradient = [Colors.orange, Colors.deepOrange];
+const blueImageGradient = [Colors.lightBlueAccent, Colors.blue];
+const greyImageGradient = [Color(0xFFCFD2D5), Color(0xFF9B9FA6)];
+const greenImageGradient = [mainGreenColor, Color(0xFF889683)];
+const purpleImageGradient = [Colors.purpleAccent, Color(0xFF8e44ad)];
+const bloodyImageGradient = [Color(0xFFFF512F), Color(0xFFDD2476)];
+const mangoImageGradient = [Color(0xFFEDDE5D), Color(0xFFF09819)];
+
+const imageColors = [
+  orangeImageGradient,
+  blueImageGradient,
+  greyImageGradient,
+  greenImageGradient,
+  purpleImageGradient,
+  bloodyImageGradient,
+  mangoImageGradient,
+];
 
 // Paddings.
 const sidePadding = sidePadding24;

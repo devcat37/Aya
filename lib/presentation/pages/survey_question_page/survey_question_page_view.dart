@@ -1,7 +1,10 @@
+// Flutter imports:
+import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:aya/domain/models/question/question.dart';
 import 'package:aya/presentation/pages/survey_question_page/survey_question__header.dart';
 import 'package:aya/presentation/pages/survey_question_page/survey_question__option.dart';
-import 'package:flutter/material.dart';
 
 class SurveyQuestionPageView extends StatelessWidget {
   const SurveyQuestionPageView({

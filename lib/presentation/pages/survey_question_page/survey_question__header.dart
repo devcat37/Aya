@@ -1,5 +1,8 @@
-import 'package:aya/internal/utils/infrastructure.dart';
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:aya/internal/utils/infrastructure.dart';
 
 class SurveyQuestionHeader extends StatelessWidget {
   const SurveyQuestionHeader({Key? key, required this.title}) : super(key: key);

@@ -1,6 +1,9 @@
+// Flutter imports:
+import 'package:flutter/cupertino.dart';
+
+// Project imports:
 import 'package:aya/internal/pages/health_survey_page/health_survey_page.dart';
 import 'package:aya/internal/pages/workspace/workspace.dart';
-import 'package:flutter/cupertino.dart';
 
 bool canPop(BuildContext context) => Navigator.of(context).canPop();
 

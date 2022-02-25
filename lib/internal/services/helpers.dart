@@ -1,4 +1,8 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
+import 'package:aya/internal/utils/infrastructure.dart';
 
 /// Расчитывает размер текста.
 Size getTextWidgetSize(String text, TextStyle style,
@@ -18,4 +22,11 @@ Color blendTwoColors(Color one, Color two, [double percent = 0.5]) {
     (one.blue * percent + two.blue * (1 - percent)).toInt(),
     1.0,
   );
+}
+
+List<Color> usernameToGradient(String username) {
+  final int length = username.length;
+  final int index = length % imageColors.length;
+
+  return imageColors.elementAt(index);
 }
